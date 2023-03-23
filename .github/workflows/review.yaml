@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v1
-      - name: set Terraform 
+      - name: Set Terraform 
         uses: harshicorp/setup-terraform@2
         with:
            terraform_version: 1.1.9
