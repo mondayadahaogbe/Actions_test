@@ -13,7 +13,6 @@ jobs:
         uses: harshicorp/setup-terraform@2
         with:
            terraform_version: 1.4.2
-           continue-on=error: true
       - name: Terraform init
         run: terraform init
       - name: echo string
