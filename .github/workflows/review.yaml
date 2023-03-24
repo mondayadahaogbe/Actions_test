@@ -4,7 +4,7 @@ on:
   - push
 
 jobs:
-  run-shell-commands:
+  terraform-workflow:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -12,14 +12,16 @@ jobs:
       - name: Set Terraform 
         uses: harshicorp/setup-terraform@2
         with:
-           terraform_version: 1.4.2
+           terraform_version: 1.1.9 
       - name: Terraform init
         run: terraform init
-      - name: echo string
-        run: echo "Hello"
-      - name: Multi line string
-        run: |
-          pwd
-          node -v
-          ls -a
+      - name: Terraform validate
+        run: terraform validate
+      - name: Terraform plan
+        run: terraform plan
+      - name: Terraform apply
+        run: terraform apply -auto-approve
+      - name: Terraform destroy
+        run: terraform destroy -auto-approve
+          
       
