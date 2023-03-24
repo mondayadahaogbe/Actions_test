@@ -3,6 +3,10 @@ name: shell commands
 on:
   - push
 
+env:
+  AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+
 jobs:
   terraform-workflow:
     runs-on: ubuntu-latest
@@ -19,9 +23,9 @@ jobs:
         run: terraform validate
       - name: Terraform plan
         run: terraform plan
-      - name: Terraform apply
-        run: terraform apply -auto-approve
-      - name: Terraform destroy
-        run: terraform destroy -auto-approve
+     #- name: Terraform apply
+        #run: terraform apply -auto-approve
+     # -name: Terraform destroy
+        #run: terraform destroy -auto-approve
           
       
